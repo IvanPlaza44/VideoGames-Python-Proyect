@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 from django.shortcuts import HttpResponse
 from django.template import Context, Template, loader
 
-from home.forms import UsuarioFormulario
+from home.forms import UsuarioFormulario,BusquedaUsuario
 from home.models import Usuario
 
 
@@ -22,13 +22,25 @@ def crear_usuario(request):
             correo_electronico=datos_crudos['correo_electronico']
             fecha_de_nacimiento=datos_crudos['fecha_de_nacimiento']
             sexo=datos_crudos['sexo']
-            persona=Usuario(nombre=nombre,apellido=apellido,correo_electronico=correo_electronico,edad=edad,fecha_de_nacimiento=fecha_de_nacimiento,sexo=sexo)
-            persona.save()
+            usuario=Usuario(nombre=nombre,apellido=apellido,correo_electronico=correo_electronico,edad=edad,fecha_de_nacimiento=fecha_de_nacimiento,sexo=sexo)
+            usuario.save()
             
         return HttpResponse('El usuario se ha creado')
     
     formulario=UsuarioFormulario()
     return render(request,'home/crear_usuario.html',{'formulario':formulario})
+
+def ver_usuarios(request):
+    #que vamos a buscar
+    nombre=request.GET.get('nombre',None)
+    if nombre:
+        usuario=Usuario.objects.filter(nombre__icontains=nombre)
+    else:
+        usuario=Usuario.objects.all()
+        
+    formulario=BusquedaUsuario()
+    return render(request,'home/ver_usuarios.html',{'usuario':usuario,'formulario':formulario})
+        
 
 def hola(request):
     return HttpResponse("<h1>Hola, Bienvenidos a nuestro Blog</h1>")

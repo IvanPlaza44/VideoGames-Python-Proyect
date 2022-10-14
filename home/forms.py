@@ -7,3 +7,8 @@ class UsuarioFormulario(forms.Form):
     correo_electronico=forms.CharField(max_length=30)
     fecha_de_nacimiento=forms.DateField(required=False)
     sexo=forms.CharField(max_length=15)
+    
+
+class BusquedaUsuario(forms.Form):
+    nombre=forms.CharField(max_length=30)
+    

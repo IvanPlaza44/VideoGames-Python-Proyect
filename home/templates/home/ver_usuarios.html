@@ -1,0 +1,30 @@
+{% extends 'home/index.html' %}
+{% block title_pagina %}
+<title>
+    Consultar Usuarios Creados 
+</title>
+{% endblock title_pagina %}
+{% block h1_texto_header %} <h1>Ver Personas</h1>{% endblock h1_texto_header %}
+
+{% block index_contenido %}
+    <a class="navbar-brand" href="{% url 'crear_usuario' %}">Crear Usuario</a>
+    <p>Listado de Usuarios:</p>
+    <form action={% url 'ver_usuarios' %} method="GET">
+        {% csrf_token %}
+        {{formulario}} 
+        <button>Buscar</button>
+    </form>
+    <p>
+        {% if usuario %}
+        {% for usuarios in usuario  %}
+        <li>{{usuarios.nombre}} {{usuarios.apellido}} Edad:{{usuarios.edad}}</li>
+        {% endfor %}
+        {% else %}
+        <p>No se encontraron resultados</p>
+        {% endif %}
+        
+    </p>
+    
+
+    
+{% endblock index_contenido %}
