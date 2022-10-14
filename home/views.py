@@ -8,3 +8,4 @@ def hola(request):
 
 def index(request):
     return render(request, 'home/index.html')
+
