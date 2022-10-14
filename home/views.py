@@ -8,9 +8,13 @@ from home.models import Usuario
 
 
 def crear_usuario(request):
+    print(request.method)
+    print(request.POST)
     if request.method=='POST':
+        print("Estoy dentor del primer if ")
         formulario=UsuarioFormulario(request.POST)
         if formulario.is_valid():
+            print("Estoy dentor del if")
             datos_crudos=formulario.cleaned_data
             nombre=datos_crudos['nombre']
             apellido=datos_crudos['apellido']
@@ -20,6 +24,7 @@ def crear_usuario(request):
             sexo=datos_crudos['sexo']
             persona=Usuario(nombre=nombre,apellido=apellido,correo_electronico=correo_electronico,edad=edad,fecha_de_nacimiento=fecha_de_nacimiento,sexo=sexo)
             persona.save()
+            
         return HttpResponse('El usuario se ha creado')
     
     formulario=UsuarioFormulario()
