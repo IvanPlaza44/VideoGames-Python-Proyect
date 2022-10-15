@@ -6,18 +6,14 @@
 {% endblock title_pagina %}
 
 {% block h1_texto_header %} <h1>Ver Personas</h1>{% endblock h1_texto_header %}
+
 {% block h1_texto_cabezera %}
 <div class="masthead-heading text-uppercase">Bienvenido a ver Usuarios</div>
 <div class="masthead-subheading">o si lo prefieres...</div>
 <a class="btn btn-primary btn-xl text-uppercase" href={% url 'crear_usuario' %}>Crear Usuario</a>
 {% endblock h1_texto_cabezera %}
 {% block index_contenido %}
-    <p>Listado de Usuarios:</p>
-    <form action={% url 'ver_usuarios' %} method="GET">
-        {% csrf_token %}
-        {{formulario}} 
-        <button>Buscar</button>
-    </form>
+    <h6>Listado de Usuarios:</h6>
     <p>
         {% if usuario %}
         {% for usuarios in usuario  %}
@@ -25,8 +21,13 @@
         {% endfor %}
         {% else %}
         <p>No se encontraron resultados</p>
-        {% endif %}
-        
-    </p>    
+        {% endif %}        
+    </p>  
+    <form action={% url 'ver_usuarios' %} method="GET">        
+        {% csrf_token %}
+        {{formulario}} 
+        <button>Buscar</button>
+    </form>
+      
 {% endblock index_contenido %}
 
