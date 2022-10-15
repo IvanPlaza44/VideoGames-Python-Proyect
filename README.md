@@ -1,1 +1,1 @@
-Se agregaran lo pasos a seguir par aespecificar ele funcionanmiento de nuestra app
+Se agregaran lo pasos a seguir para especificar el funcionanmiento de nuestra app
