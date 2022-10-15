@@ -11704,10 +11704,26 @@ header.masthead .masthead-heading {
   margin-bottom: 3rem;
   text-align: center;
 }
+.team-member1 img {
+  width: 14rem;
+  height: 14rem;
+  border: 0.5rem solid rgba(0, 0, 0, 0.1);
+  background-image: url(../assets/img/team/1.jpg);
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center center;
+  background-size: cover;
+}
+
 .team-member img {
   width: 14rem;
   height: 14rem;
   border: 0.5rem solid rgba(0, 0, 0, 0.1);
+  background-image: url(../assets/img/team/2.jpg);
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center center;
+  background-size: cover;
 }
 .team-member h4, .team-member .h4 {
   margin-top: 1.5rem;
