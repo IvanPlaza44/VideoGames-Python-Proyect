@@ -46,10 +46,6 @@ def usuario_creado(request):
 
 def acerca_de_nosotros(request):
     return render(request,'home/acerca_de_nosotros.html',{})
-        
-
-def hola(request):
-    return HttpResponse("<h1>Hola, Bienvenidos a nuestro Blog</h1>")
 
 def index(request):
     return render(request, 'home/index.html')
