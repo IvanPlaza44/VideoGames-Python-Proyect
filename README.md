@@ -7,12 +7,20 @@ Nuestro proyecto "BlogAP", es un pequeño modelo de un Blog que esta en desarrol
 ***
 ## Pasos a seguir para Funcionamiento
 ```
-$ Abrir una terminal de VSC (Preferiblemente la terminal Bash)
-$ pip install Django
-$ git clone ...
-$ git init
-$ python -m venv EntornoVirtual
-$ . start.sh
-
-
+$ Abrir una terminal de VSC (Preferiblemente la terminal Bash).
+$ Una vez abierta la terminal ejecutar  el comando git clone https://github.com/IvanPlaza44/Entrega1-Arjona_y_Plaza/tree/main el cual nos ayudar a clonar nuestro reposistorio y ponerlo ene sus computadora de forma local.
+$ Crear un entorno virtual  con el comando python -m venv <nombre de tu entorno virtual (se recomienda EntornoVirtual)>.
+$ Ejecutaremos nuestro entorno virtual con ayuda del archivo start.sh  y para activarlo en la terminal ejecutaremos el siguiente comando . start.sh o  si no se quiere ocupar este archivo escribiremos en la terminal:
+    $   Windows
+        $ . <nombre_de_tu _entorno_virtual>/Scripts/activate
+    $ Linux
+        $ . <nombre_de_tu _entorno_virtual>/bin/activate
+$ Instalaremos Django con el comando pip install Django.
+$ Levantaremos nuestra  Base de Datos, pra lo cual en temrinal pondremso ele sisguiente codigo  py, python o python3 (depende  de sus computadora)  manage.py makemigrations, al ejecutar este comando nos creara nuesta Base de datos llamada sqlite3.
+$ Lavantaremos nuestro servidor de forma local, para esto nosotros ejecutaremos el comando py, python o python3 (depende  de sus computadora)  manage.py runserver
+$ Una vez levantado nuestro server encontrara una pagina  de inicio, esta sera nuesto index porteriormente si usted le da clic a la leyenda "Menu" vera tres opciones
+    $ Crear Usuario: Esta opcion nos permitira  registrar un usuario, favor a la hora de llenar el campo Fecha de Nacimiento seguir el siguiente formato AAAA-MM-DD
+    $ Ver Usuario: Nos permitira ver la lista de usuarios registrados y tambien buscar usuarios por nombre
+    $ Acerca de Nosotros: Observaras una pequeña descripción de nosotros.
+$ Esperemos te guste nuestro desarrollo.
 
