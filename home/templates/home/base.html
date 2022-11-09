@@ -36,7 +36,7 @@
                             <li class="nav-item"><a class="nav-link" href= {% url 'perfil_del_usuario' %} >{{request.user.username}}</a></li>
                             <li class="nav-item"><a class="nav-link" href={% url 'cerrar_sesion' %}>Cerrar Sesion</a></li>
                         {% else %}
-                            <li class="nav-item"><a class="nav-link" href={% url 'iniciar_sesion' %}>Iniciar sesion  </a></li>
+                            <li class="nav-item"><a class="nav-link" href={% url 'login' %}>Iniciar sesion  </a></li>
                             <li class="nav-item"><a class="nav-link" href={% url 'registrar' %}>Registrase  </a></li>
                         
                         {% endif %} 

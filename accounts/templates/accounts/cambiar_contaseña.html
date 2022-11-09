@@ -1,17 +1,18 @@
 {% extends 'home/base.html' %}>
 {% block title_pagina %}
-<title>Iniciar Sesion</title>
+<title>Cambiar Contraseña</title>
 {% endblock title_pagina %}
 
 {% block mi_contenido %}
 <!-- Get consultas la manda a la vista y POS para dar informaciom ocual ene la consulta que se hace-->
-<form action={% url 'iniciar_sesion' %} method="POST">
+<form action={% url 'cambiar_contraseña' %} method="POST">
     {% csrf_token %}
+    <h1> Cambiar Contraseña del Usuario</h1>
     <table>
-       {{formulario}} 
+       {{form}} 
     </table>
     
-    <button>Iniciar Sesion</button>
+    <button>Aceptar</button>
 
 </form>
 
