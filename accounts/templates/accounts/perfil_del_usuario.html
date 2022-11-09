@@ -1,0 +1,21 @@
+{% extends 'home/base.html' %}>
+{% block title_pagina %}
+<title>Perfil</title>
+{% endblock title_pagina %}
+
+{% block mi_contenido %}
+<h1>Informacion del Usuario</h1>
+<p>
+    {% if request.user.extesionusuario.avatar %}
+    <img src= {{request.user.extesionusuario.avatar.url}} alt="">
+    {% else %}
+    Imagen no cargada
+    {% endif %}
+    
+</p>
+<p>
+<li>Nombre: {{request.user.first_name}}</li>
+<li>Apellido: {{request.user.last_name}}</li>
+<li>Email: {{request.user.email}}</li>
+</p>
+{% endblock mi_contenido %}
