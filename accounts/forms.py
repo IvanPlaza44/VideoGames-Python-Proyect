@@ -2,6 +2,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import PasswordChangeForm
+
 class CreacionDeusuario(UserCreationForm):
     username= forms.CharField(label= 'Usuario' ,max_length=20)
     password1=forms.CharField(label='Contraseña:',  widget=forms.PasswordInput)
@@ -18,6 +19,8 @@ class EditarPerfilDeUsuario(forms.Form):
     last_name=forms.CharField(label= 'Apellido')
     email=forms.CharField()
     avatar=forms.ImageField(required=False)
+    descripcion=forms.CharField(required=False)
+    red_social=forms.CharField(required=False)
     
 class CambioDeContraseña(PasswordChangeForm):
     old_password=forms.CharField(label='Contraseña Anterior:',  widget=forms.PasswordInput)

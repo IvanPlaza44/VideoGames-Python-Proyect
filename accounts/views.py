@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login
-from accounts.models import ExtesionUsuario
+from accounts.models import ExtesionUsuario, ExtesionUsuario2
 from accounts.forms import CreacionDeusuario,EditarPerfilDeUsuario, CambioDeContraseña
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -16,6 +16,7 @@ def mi_login(request):
             usuario= formulario.get_user() #permite que se loege
             login(request,usuario)
             extensionUsuario,es_nuevo=ExtesionUsuario.objects.get_or_create(user=request.user)
+            extensionUsuario2,es_nuevo2=ExtesionUsuario2.objects.get_or_create(user=request.user)
             return redirect('index')
     else:
         formulario=AuthenticationForm()
@@ -47,11 +48,13 @@ def editar_perfil(request):
             request.user.last_name=data_nueva['last_name']
             request.user.email=data_nueva['email']
             request.user.extesionusuario.avatar=data_nueva['avatar']
+            request.user.extesionusuario.descripcion=data_nueva['descripcion']
+            request.user.extesionusuario.red_social=data_nueva['red_social']
             request.user.extesionusuario.save()
             request.user.save()
             return redirect('perfil_del_usuario')
     else:        
-        formulario=EditarPerfilDeUsuario(initial={'first_name':request.user.first_name, 'last_name':request.user.last_name, 'email':request.user.email,'avatar':request.user.extesionusuario.avatar, })
+        formulario=EditarPerfilDeUsuario(initial={'first_name':request.user.first_name, 'last_name':request.user.last_name, 'email':request.user.email,'avatar':request.user.extesionusuario.avatar, 'descripcion':request.user.extesionusuario.descripcion,'red_social':request.user.extesionusuario.red_social, })
     return render(request, 'accounts/editar_perfil.html',{'formulario':formulario})
 
 class CambiarLlave(LoginRequiredMixin, PasswordChangeView):
