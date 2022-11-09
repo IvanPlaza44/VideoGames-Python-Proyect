@@ -1,13 +1,13 @@
 {% extends 'home/base.html' %}
 {% block titulo_pagina %}
-<title>Crear Videojuego</title>
+<title>Editar Videojuego</title>
 {% endblock titulo_pagina %}
 {% block mi_contenido  %}
-<form action={% url 'crear_videojuegos' %} method="POST">
+<form action={% url 'editar_videojuego' videojuego.id%} method="POST">
     {% csrf_token %}
     <table>
         {{formulario}}
     </table>
-    <button>Crear</button>
+    <button>Editar</button>
 </form>
 {% endblock mi_contenido  %}

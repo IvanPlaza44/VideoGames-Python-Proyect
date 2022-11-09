@@ -10,14 +10,17 @@
 {% block h1_texto_cabezera %}
 <div class="masthead-heading text-uppercase">Bienvenido a ver Videojuegos</div>
 <div class="masthead-subheading">o si lo prefieres...</div>
-<a class="btn btn-primary btn-xl text-uppercase" href={% url 'crear_videojuegos' %}>Crear Videojuego</a>
+<a class="btn btn-primary btn-xl text-uppercase" href={% url 'crear_videojuego' %}>Crear Videojuego</a>
 {% endblock h1_texto_cabezera %}
 {% block index_contenido %}
     <h6>Listado de Videojuegos:</h6>
     <p>
         {% if videojuegos %}
-        {% for videojuego in videojuegos  %}
-        <li>{{videojuego.nombre}} {{videojuego.desarrollador}} {{videojuego.genero}} {{videojuego.plataformas}} {{videojuego.precio}} {{videojuego.jugadores}} {{videojuego.lanzamiento}} {{videojuego.resumen}}</li>
+        {% for videojuego in videojuegos%}
+        <li>
+            {{videojuego}}
+            <a class="navbar-brand" href={% url 'editar_videojuego' videojuego.id%}>Editar</a>
+        </li>
         {% endfor %}
         {% else %}
         <p>No se encontraron resultados</p>

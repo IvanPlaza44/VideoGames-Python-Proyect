@@ -10,5 +10,5 @@ class Usuario(models.Model):
     fecha_de_nacimiento=models.DateField()
     sexo=models.CharField(max_length=15)
 
-def __str__(self):
-    return f'{self.nombre} {self.apellido}' 
+    def __str__(self):
+        return f'{self.nombre} {self.apellido}' 
