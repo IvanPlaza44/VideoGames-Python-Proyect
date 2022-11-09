@@ -2,19 +2,17 @@ from contextvars import Context
 from django.shortcuts import render, redirect
 from django.shortcuts import HttpResponse
 from django.template import Context, Template, loader
-
 from home.forms import UsuarioFormulario,BusquedaUsuario
 from home.models import Usuario
-
 
 def crear_usuario(request):
     print(request.method)
     print(request.POST)
     if request.method=='POST':
-        print("Estoy dentor del primer if ")
+        print("Estoy dentro del primer if ")
         formulario=UsuarioFormulario(request.POST)
         if formulario.is_valid():
-            print("Estoy dentor del if")
+            print("Estoy dentro del if")
             datos_crudos=formulario.cleaned_data
             nombre=datos_crudos['nombre']
             apellido=datos_crudos['apellido']
