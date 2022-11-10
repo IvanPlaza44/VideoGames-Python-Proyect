@@ -38,10 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'home',
-    'games'
+    'games',
     'accounts',
-    'ckeditor',
-]
+    # 'ckeditor',
+]   
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
