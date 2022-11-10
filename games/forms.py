@@ -1,4 +1,5 @@
 from django import forms
+from ckeditor.fields import RichTextFormField
 
 class VideojuegoFormulario(forms.Form):
     nombre = forms.CharField(max_length=20)

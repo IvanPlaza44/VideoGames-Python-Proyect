@@ -51,8 +51,7 @@ def editar_videojuego(request, id):
             
             videojuego.save()
             return redirect('ver_videojuegos')
-        else:
-            return render(request, 'games/editar_videojuego.html', {'formulario': formulario, 'videojuego': videojuego})
+        
     
     formulario = VideojuegoFormulario(
         initial={
