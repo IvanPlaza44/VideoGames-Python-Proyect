@@ -25,7 +25,8 @@ def crear_videojuego(request):
             )
             videojuego.save()
             return redirect('ver_videojuegos')
-    
+        else:
+           return render(request, 'games/crear_videojuego.html', {'formulario': formulario}) 
     formulario = VideojuegoFormulario()
     
     return render(request, 'games/crear_videojuego.html', {'formulario': formulario})
@@ -50,6 +51,8 @@ def editar_videojuego(request, id):
             
             videojuego.save()
             return redirect('ver_videojuegos')
+        else:
+            return render(request, 'games/editar_videojuego.html', {'formulario': formulario, 'videojuego': videojuego})
     
     formulario = VideojuegoFormulario(
         initial={
@@ -64,3 +67,9 @@ def editar_videojuego(request, id):
     )
     
     return render(request, 'games/editar_videojuego.html', {'formulario': formulario, 'videojuego': videojuego})
+
+def eliminar_videojuego(request, id):
+    
+    videojuego = Videojuego.objects.get(id=id)
+    videojuego.delete()
+    return redirect('ver_videojuegos')
