@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login
-from accounts.models import ExtesionUsuario, ExtesionUsuario2
+from accounts.models import ExtesionUsuario
 from accounts.forms import CreacionDeusuario,EditarPerfilDeUsuario, CambioDeContraseña
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -16,7 +16,6 @@ def mi_login(request):
             usuario= formulario.get_user() #permite que se loege
             login(request,usuario)
             extensionUsuario,es_nuevo=ExtesionUsuario.objects.get_or_create(user=request.user)
-            extensionUsuario2,es_nuevo2=ExtesionUsuario2.objects.get_or_create(user=request.user)
             return redirect('index')
     else:
         formulario=AuthenticationForm()
