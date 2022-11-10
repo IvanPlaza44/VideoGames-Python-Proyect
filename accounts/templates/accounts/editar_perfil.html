@@ -1,0 +1,18 @@
+{% extends 'home/base.html' %}>
+{% block title_pagina %}
+<title>Editar Perfil</title>
+{% endblock title_pagina %}
+
+{% block mi_contenido %}
+<!-- Get consultas la manda a la vista y POS para dar informaciom ocual ene la consulta que se hace-->
+<form action={% url 'editar_perfil' %} method="POST" enctype='multipart/form-data'> 
+    {% csrf_token %}
+    <table>
+       {{formulario}} 
+    </table>
+    
+    <button>Aceptar</button>
+
+</form>
+
+{% endblock mi_contenido %}

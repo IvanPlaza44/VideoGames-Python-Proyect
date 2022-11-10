@@ -1,0 +1,18 @@
+{% extends 'home/base.html' %}>
+{% block title_pagina %}
+<title>Iniciar Sesion</title>
+{% endblock title_pagina %}
+
+{% block mi_contenido %}
+<!-- Get consultas la manda a la vista y POS para dar informaciom ocual ene la consulta que se hace-->
+<form action={% url 'login' %} method="POST">
+    {% csrf_token %}
+    <table>
+       {{formulario}} 
+    </table>
+    
+    <button>Iniciar Sesion</button>
+
+</form>
+
+{% endblock mi_contenido %}

@@ -32,10 +32,19 @@
                     <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
                         <strong>
                         <span style=”color: black;”>
+                        {% if  request.user.is_authenticated %}
+                            <li class="nav-item"><a class="nav-link" href= {% url 'perfil_del_usuario' %} >{{request.user.username}}</a></li>
+                            <li class="nav-item"><a class="nav-link" href={% url 'cerrar_sesion' %}>Cerrar Sesion</a></li>
+                        {% else %}
+                            <li class="nav-item"><a class="nav-link" href={% url 'login' %}>Iniciar sesion  </a></li>
+                            <li class="nav-item"><a class="nav-link" href={% url 'registrar' %}>Registrase  </a></li>
+                        
+                        {% endif %} 
+
                         <li class="nav-item"><a class="nav-link" href={% url 'crear_usuario' %}>Crear usuario</a></li>
                         <li class="nav-item"><a class="nav-link" href={% url 'ver_usuarios' %}>Ver usuarios</a></li>
                         <li class="nav-item"><a class="nav-link" href={% url 'acerca_de_nosotros' %}>Acerca de Nosostros</a></li> 
-                        <li class="nav-item"><a class="nav-link" href={% url 'ver_videojuegos' %}>Ver Videojuegos</a></li> 
+                        <li class="nav-item"><a class="nav-link" href={% url 'ver_videojuegos' %}>Ver Videojuegos</a></li>
                         <li class="nav-item"><a class="nav-link" href={% url 'crear_videojuego' %}>Crear Videojuego</a></li> 
                         </strong>
                     </span>                       
