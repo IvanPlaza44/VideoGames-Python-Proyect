@@ -1,0 +1,26 @@
+{% extends 'home/base.html' %}>
+{% block title_pagina %}
+<title>Perfil</title>
+{% endblock title_pagina %}
+
+{% block mi_contenido %}
+<h1>Informacion del Usuario</h1>
+
+<p>
+    {% if request.user.extesionusuario.avatar %}
+        <img src= {{request.user.extesionusuario.avatar.url}} alt="">
+    {% else %}
+        <h2>Avatar no cargado</h2>
+    {% endif %}
+    
+</p>
+<p>
+<li>Nombre: {{request.user.first_name}}</li>
+<li>Apellido: {{request.user.last_name}}</li>
+<li>Email: {{request.user.email}}</li>
+<li>Descripcion: {{request.user.extesionusuario.descripcion}}</li>
+<li>Red Social: {{request.user.extesionusuario.red_social}}</li>
+</p>
+<p><a href={% url 'editar_perfil' %}>Editar Perfil</a></p>
+<p><a href={% url 'cambiar_contraseña' %}>Cambiar Contraseña</a></p>
+{% endblock mi_contenido %}

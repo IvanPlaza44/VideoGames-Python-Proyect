@@ -24,3 +24,8 @@ $ Una vez levantado nuestro server encontrara una pagina  de inicio, esta sera n
     $ Acerca de Nosotros: Observaras una pequeña descripción de nosotros.
 $ Esperemos te guste nuestro desarrollo.
 
+
+
+El supoer admin  es 
+user admin
+pass 123
