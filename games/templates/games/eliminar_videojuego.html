@@ -1,0 +1,13 @@
+{% extends 'home/base.html' %}
+{% block titulo_pagina %}
+<title>Eliminar Videojuego</title>
+{% endblock titulo_pagina %}
+{% block mi_contenido  %}
+<form action={% url 'eliminar_videojuego'  object.id%} method="POST">
+    {% csrf_token %}
+   <p>
+        Desea eliminar el Videojuego {{object}}?
+   </p>
+    <button>Eliminar</button>
+</form>
+{% endblock mi_contenido  %}

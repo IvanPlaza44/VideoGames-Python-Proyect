@@ -1,0 +1,37 @@
+{% extends 'home/index.html' %}
+{% block title_pagina %}
+<title>
+    Consultar Videojuegos Creados 
+</title>
+{% endblock title_pagina %}
+
+{% block h1_texto_header %} <h1>Ver Videojuegos</h1>{% endblock h1_texto_header %}
+
+{% block h1_texto_cabezera %}
+<div class="masthead-heading text-uppercase">Bienvenido a ver Videojuegos</div>
+<div class="masthead-subheading">o si lo prefieres...</div>
+<a class="btn btn-primary btn-xl text-uppercase" href={% url 'crear_videojuego' %}>Crear Videojuego</a>
+{% endblock h1_texto_cabezera %}
+{% block mi_contenido %}
+    <h6>Listado de Usuarios:</h6>
+    <p>
+        {% if object_list %}
+        {% for videojuego in object_list %}
+        <li>
+            {{videojuego}}
+            <a class="navbar-brand" href={% url 'editar_videojuego' videojuego.id %}>Editar</a>
+            <a class="navbar-brand" href={% url 'eliminar_videojuego' videojuego.id %}>Eliminar</a>
+            
+        </li>
+        {% endfor %}
+        {% else %}
+        <p>No se encontraron resultados</p>
+        {% endif %}        
+    </p>  
+     <form action={% url 'ver_videojuegos' %} method="GET">        
+        {% csrf_token %}
+        {{formulario}} 
+        <button>Buscar</button>
+    </form> 
+      
+{% endblock mi_contenido %}
