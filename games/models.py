@@ -1,5 +1,6 @@
 from django.db import models
 
+
 # Create your models here.
 
 class Videojuego(models.Model):
@@ -13,4 +14,4 @@ class Videojuego(models.Model):
     resumen = models.CharField(max_length=30)
     
     def __str__(self):
-        return f'{self.nombre} -- {self.desarrollador} '
+        return f'{self.nombre} de {self.desarrollador} '
