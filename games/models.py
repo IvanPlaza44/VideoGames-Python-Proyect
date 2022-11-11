@@ -1,5 +1,5 @@
 from django.db import models
-from ckeditor.fields import  RichTextField
+from ckeditor.fields import  RichTextFieldgit 
 # Create your models here.
 
 class Videojuego(models.Model):
