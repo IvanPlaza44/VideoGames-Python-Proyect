@@ -16,7 +16,7 @@ class CrearVideojuego(LoginRequiredMixin,CreateView):
     model = Videojuego
     success_url = '/games/videojuegos/'
     template_name = 'games/crear_videojuego.html'
-    fields = ['nombre', 'desarrollador', 'genero', 'plataformas', 'precio', 'jugadores', 'lanzamiento', 'resumen']
+    fields = ['nombre', 'desarrollador', 'genero', 'plataformas', 'precio', 'jugadores', 'lanzamiento', 'resumen','autor']
 
 class EditarVideojuego(LoginRequiredMixin,UpdateView):
     model = Videojuego
