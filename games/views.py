@@ -12,7 +12,13 @@ class VerVideojuego(DetailView):
 
 def ver_videojuegos(request):
     videojuegos = Videojuego.objects.all()
-    return render(request, 'games/ver_videojuegos.html', {'videojuegos': videojuegos})
+    formulario = BusquedaVideojuego()
+    nombre=request.GET.get('nombre',None)
+    if nombre:
+        videojuegos=Videojuego.objects.filter(nombre__icontains=nombre)
+    else:
+        videojuegos=Videojuego.objects.all()
+    return render(request, 'games/ver_videojuegos.html', {'videojuegos': videojuegos, 'formulario': formulario} )
 
 class ListaVideojuegos(ListView):
     
@@ -28,7 +34,7 @@ class ListaVideojuegos(ListView):
         return videojuegos
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["formulario"] = BusquedaVideojuego()
+        context["form"] = BusquedaVideojuego()
         return context
 
 class CrearVideojuego(LoginRequiredMixin,CreateView):
