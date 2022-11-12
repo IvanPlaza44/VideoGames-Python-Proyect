@@ -22,7 +22,7 @@ class EditarVideojuego(LoginRequiredMixin,UpdateView):
     model = Videojuego
     success_url = '/games/videojuegos/'
     template_name = 'games/editar_videojuego.html'
-    fields = ['nombre', 'desarrollador', 'genero', 'plataformas', 'precio', 'jugadores', 'lanzamiento', 'resumen']
+    fields = ['nombre', 'desarrollador', 'genero', 'plataformas', 'precio', 'jugadores', 'lanzamiento', 'resumen','autor']
     
 class EliminarVideojuego(LoginRequiredMixin,DeleteView):
     model = Videojuego
