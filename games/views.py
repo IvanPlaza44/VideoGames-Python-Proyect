@@ -1,6 +1,6 @@
 from django.shortcuts import redirect, render
 from games.models import Videojuego
-from games.forms import VideojuegoFormulario
+from games.forms import VideojuegoFormulario, BusquedaVideojuego
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -12,8 +12,21 @@ def ver_videojuegos(request):
     return render(request, 'games/ver_videojuegos.html', {'videojuegos': videojuegos})
 
 class ListaVideojuegos(ListView):
+    
     model = Videojuego
     template_name = 'games/lista_videojuegos.html'
+    
+    def get_queryset(self):
+        nombre = self.request.GET.get('nombre', '')
+        if nombre:
+            videojuegos = self.model.objects.filter(nombre__icontains=nombre)
+        else:
+            videojuegos = self.model.objects.all()
+        return videojuegos
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["formulario"] = BusquedaVideojuego()
+        return context
 
 class CrearVideojuego(LoginRequiredMixin,CreateView):
     model = Videojuego
