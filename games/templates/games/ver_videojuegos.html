@@ -18,7 +18,7 @@
         {% if videojuegos %}
         {% for videojuego in videojuegos  %}
         <li>
-            {{videojuego}}
+            <a class="navbar-brand" href={% url 'ver_videojuego' videojuego.id %}>{{videojuego}}</a>
             <a class="navbar-brand" href={% url 'editar_videojuego' videojuego.id %}>Editar</a>
             <a class="navbar-brand" href={% url 'eliminar_videojuego' videojuego.id %}>Eliminar</a>
             

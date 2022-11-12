@@ -1,0 +1,22 @@
+{% extends 'home/index.html' %}
+{% block title_pagina %}
+<title>
+    Informacion del Videojuego
+</title>
+{% endblock title_pagina %}
+
+{% block h1_texto_header %} <h1>Ver Videojuego</h1>{% endblock h1_texto_header %}
+
+{% block mi_contenido %}
+    <p>
+        <li>Nombre: {{videojuego.nombre}}</li>
+        <li>Desarrollador: {{videojuego.desarrollador}}</li>
+        <li>Genero: {{videojuego.genero}}</li>
+        <li>Plataformas: {{videojuego.plataformas}}</li>
+        <li>Precio: {{videojuego.precio}}</li>
+        <li>Jugadores: {{videojuego.jugadores}}</li>
+        <li>Lanzamiento: {{videojuego.lanzamiento}}</li>
+        <li>Resumen: {{videojuego.resumen}}</li>              
+    </p>
+{% endblock mi_contenido %}
+
