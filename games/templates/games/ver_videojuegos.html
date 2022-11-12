@@ -23,16 +23,18 @@
             <a class="navbar-brand" href={% url 'eliminar_videojuego' videojuego.id %}>Eliminar</a>
             
         </li>
+    
         {% endfor %}
         {% else %}
         <p>No se encontraron resultados</p>
         {% endif %}        
     </p>  
-     <form action={% url 'ver_videojuegos' %} method="GET">        
+    <form action={% url 'ver_videojuegos' %} method="GET">        
         {% csrf_token %}
         {{formulario}} 
+        
         <button>Buscar</button>
     </form> 
-      
+    
 {% endblock mi_contenido %}
 
