@@ -14,9 +14,9 @@ class Videojuego(models.Model):
     lanzamiento = models.DateField()
     distribuidor = models.CharField(max_length=30)
     descripcion = RichTextField(null=True)
-    caratula = models.ImageField(upload_to= 'avatares', null=True, blank=True)  
     autor =models.CharField(max_length=30, null=True)
     fecha_de_creacion= models.DateTimeField(auto_now_add=True, null= True)
-    
+    caratula = models.ImageField(upload_to= 'caratulas', null=True, blank=True)  
+
     def __str__(self):
         return f'{self.nombre}'

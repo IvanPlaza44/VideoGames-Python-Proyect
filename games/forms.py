@@ -8,6 +8,7 @@ class VideojuegoFormulario(forms.Form):
     jugadores = forms.IntegerField()
     lanzamiento = forms.DateField()
     distribuidor = forms.CharField(max_length=30)
+    caratula = forms.ImageField(required=False) 
     autor= forms.CharField(max_length=30)
     fecha_de_creacion=forms.DateField()
     

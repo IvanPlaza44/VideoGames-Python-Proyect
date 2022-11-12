@@ -3,7 +3,7 @@
 <title>Editar Videojuego</title>
 {% endblock titulo_pagina %}
 {% block mi_contenido  %}
-<form action={% url 'editar_videojuego' videojuego.id %} method="POST">
+<form action={% url 'editar_videojuego' videojuego.id %} method="POST" enctype='multipart/form-data'>
     {% csrf_token %}
     <table>
         {{form.media}}

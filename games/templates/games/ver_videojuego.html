@@ -6,17 +6,17 @@
 {% endblock title_pagina %}
 
 {% block h1_texto_header %} <h1>Ver Videojuego</h1>{% endblock h1_texto_header %}
-
-<p>
-    {% if request.videojuego.id.videojuego.caratula %}
-        <img src= {{request.videojuego.id.videojuego.caratula.url}} alt="">
-    {% else %}
-        <h2>Imagen no cargada</h2>
-    {% endif %}
-    
-</p>
-
 {% block mi_contenido %}
+    <p>    
+        <li>
+            {% if  videojuego.caratulal%}
+            <img src={{videojuego.caratula.url}} alt="">
+            {% else %}
+            Imagen no Cargada
+            {% endif %}            
+        </li>
+    </p>
+
     <p>
         <li>Nombre: {{videojuego.nombre}}</li>
         <li>Desarrollador: {{videojuego.desarrollador}}</li>
@@ -26,8 +26,7 @@
         <li>Jugadores: {{videojuego.jugadores}}</li>
         <li>Lanzamiento: {{videojuego.lanzamiento}}</li>
         <li>Distribuidor: {{videojuego.distribuidor}}</li>  
-        <li>Descripcion: {{videojuego.descripcion | safe }}</li>  
-        <li>Caratula: {{videojuego.caratula}}</li>            
+        <li>Descripcion: {{videojuego.descripcion | safe }}</li>                 
         <li>Autor: {{videojuego.autor}}</li>
         <li>Fecha de creacion del Post: {{videojuego.fecha_de_creacion}}</li>
 
