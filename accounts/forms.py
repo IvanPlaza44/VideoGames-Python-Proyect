@@ -20,7 +20,7 @@ class EditarPerfilDeUsuario(forms.Form):
     email=forms.CharField()
     avatar=forms.ImageField(required=False)
     descripcion=forms.CharField(required=False)
-    red_social=forms.CharField(required=False)
+    red_social=forms.URLField(required=False)
     
 class CambioDeContraseña(PasswordChangeForm):
     old_password=forms.CharField(label='Contraseña Anterior:',  widget=forms.PasswordInput)

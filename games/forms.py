@@ -1,5 +1,4 @@
 from django import forms
-
 class VideojuegoFormulario(forms.Form):
     nombre = forms.CharField(max_length=30)
     desarrollador = forms.CharField(max_length=30)
@@ -9,6 +8,8 @@ class VideojuegoFormulario(forms.Form):
     jugadores = forms.IntegerField()
     lanzamiento = forms.DateField()
     distribuidor = forms.CharField(max_length=30)
+    autor= forms.CharField(max_length=30)
+    fecha_de_creacion=forms.DateField()
     
 class BusquedaVideojuego(forms.Form):
     nombre=forms.CharField(max_length=30, required=False)
