@@ -8,11 +8,11 @@
 {% block h1_texto_header %} <h1>Ver Videojuego</h1>{% endblock h1_texto_header %}
 {% block mi_contenido %}
     <p>    
-        <li>
+        <li>Caratula del Videojuego:
             {% if  videojuego.caratula%}
             <img src={{videojuego.caratula.url}} alt="">
             {% else %}
-            Imagen no Cargada
+            Caratula del videojuego no cargada
             {% endif %}            
         </li>
     </p>
