@@ -6,6 +6,7 @@
 <form action={% url 'crear_videojuego' %} method="POST">
     {% csrf_token %}
     <table>
+        {{form.media}}
         {{form}}
     </table>
     <button>Crear</button>

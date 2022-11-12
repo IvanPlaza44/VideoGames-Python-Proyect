@@ -1,5 +1,5 @@
 from django.db import models
-
+from ckeditor.fields import RichTextField
 
 
 class Videojuego(models.Model):
@@ -10,7 +10,8 @@ class Videojuego(models.Model):
     precio = models.IntegerField()
     jugadores = models.IntegerField()
     lanzamiento = models.DateField()
-    resumen = models.CharField(max_length=30)
+    distribuidor = models.CharField(max_length=30)
+    descripcion = RichTextField(null=True)
     
     def __str__(self):
-        return f'{self.nombre} de {self.desarrollador} '
+        return f'{self.nombre}'

@@ -8,4 +8,4 @@ class VideojuegoFormulario(forms.Form):
     precio = forms.IntegerField()
     jugadores = forms.IntegerField()
     lanzamiento = forms.DateField()
-    resumen = forms.CharField(max_length=30)
+    distribuidor = forms.CharField(max_length=30)
