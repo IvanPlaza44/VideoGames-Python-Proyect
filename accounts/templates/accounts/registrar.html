@@ -4,7 +4,7 @@
 {% endblock title_pagina %}
 
 {% block mi_contenido %}
-<h1>Registo de Usuario Nuevo</h1>
+<h1>Registro de Usuario Nuevo</h1>
 <!-- Get consultas la manda a la vista y POS para dar informaciom ocual ene la consulta que se hace-->
 <form action={% url 'registrar' %} method="POST">
     {% csrf_token %}
