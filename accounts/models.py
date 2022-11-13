@@ -9,5 +9,3 @@ class ExtesionUsuario(models.Model):
     #red_social= models.CharField(null=True,max_length=200)
     user=models.OneToOneField(User,on_delete=models.CASCADE)
     red_social= models.URLField(max_length=500, null=True)
-class ExtesionUsuario2(models.Model):
-    ...
